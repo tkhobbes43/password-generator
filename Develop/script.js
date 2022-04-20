@@ -1,8 +1,24 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+//setting variables for the prompts
+let numberOfCharacters = prompt("How many characters would you like your password to contain?");
+let includeNumbers = prompt ("Click OK to confirm including numbers.")
+let includeUppercase = prompt("Click OK to confirm including special characters.");
+let includeLowercase = prompt("Click OK to confirm including lowercase characters.");
+
+
 function generatePassword() {
-  console.log("Hey! You clicked the button!")
+  console.log("Hey! You clicked the button!");
+
+// 1. prompt the user for the password criteria
+//   a. password length 8 < 128
+//   b. lowercase, uppercase, numbers, special characters
+// 2. validate the input
+// 3. generate password based on criteria
+
+// 4. display the generated password on the page
+  return "Generated password will go here!";
 }
 
 // Write password to the #password input
@@ -30,8 +46,6 @@ generateBtn.addEventListener("click", writePassword);
 //const includeUppercase = 
 //const includeNumbers = 
 //const include Symbols = 
-
-
 
 // What the prompts need to say
 
