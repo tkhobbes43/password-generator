@@ -2,38 +2,47 @@
 var generateBtn = document.querySelector("#generate");
 
 //setting variables for the prompts, this makes it so it shows them correctly as you use the application
-let numberOfCharacters = prompt("How many characters would you like your password to contain?");
-let includeNumbers = prompt ("Click OK to confirm including numbers.")
-let includeUppercase = prompt("Click OK to confirm including special characters.");
-let includeLowercase = prompt("Click OK to confirm including lowercase characters.");
+let numberOfCharacters = 0
+while(numberOfCharacters === 0 || numberOfCharacters < 8 || numberOfCharacters > 128) {
+  numberOfCharacters = parseInt(prompt("How many characters would you like your password to contain?"));
+}
+let includeNumbers = confirm("Click OK to confirm including numbers.")
+let specialCharacters = confirm("Click OK to confirm including special characters.")
+let includeUppercase = confirm("Click OK to confirm including uppercase characters.");
+let includeLowercase = confirm("Click OK to confirm including lowercase characters.");
 
 // arrays for each conditional variable
-let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-let symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~'];
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+let symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '-', '.', '~', '|', '<', '>', '=', '-', '_', '/', ':', ';', '?', '[', ']', '{', '}', '~', "'",'"'];
 let upperCaseLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 let lowerCaseLetters = ['a', 'b','c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's','t', 'u', 'v', 'w', 'x', 'y', 'z'];
+var allCharacters = [...numbers, ...symbols, ...upperCaseLetters, ...lowerCaseLetters]
+
+console.log(allCharacters);
+const password = generatePassword(numberOfCharacters, includeUppercase, includeNumbers, specialCharacters)
+// const includeUppercase = 
+// const includeUppercase = 
+// const includeNumbers = 
+// const include Symbols = 
 
 
-// conditional statement for the different conditions
-if (numberOfCharacters) {
-
-
-} else if (includeNumbers) {
-
-
-} else if (includeUppercase) {
-
-
-}else if (includeLowercase) {
-
-  
-} else {
-
-
+function randomize(array) {
+  let index = Math.floor(Math.random() * array.length) 
+  return array[index]
 }
 
-function generatePassword() {
-  console.log("Hey! You clicked the button!");
+function generatePassword(passwordlength) {
+  var passwordCharacters = []
+  if (includeNumbers) {
+  passwordCharacters.push(randomize(numbers))
+  }
+  console.log(passwordCharacters)
+
+  
+  
+  
+  // for (var i=0; i<passwordlength; i++);
+  // (Math.floor(Math.random))
 
 // 1. prompt the user for the password criteria
 //   a. password length 8 < 128
@@ -60,14 +69,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-// What i've added to the code so far 
-
-
-//const characterAmount = characterAmountNumber.value
-//const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols)
-//const includeUppercase = 
-//const includeUppercase = 
-//const includeNumbers = 
-//const include Symbols = 
