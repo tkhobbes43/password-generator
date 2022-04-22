@@ -13,7 +13,7 @@ var numbers = "0123456789";
 var symbols = "!@#$%^&*()+-.~|<>=-_/:;?[]{}~'";
 var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";  
-var numberOfCharacters = "";
+var passwordCharacters = "";
 
 function generatePassword() {
  // want to have all the most of the work done here inside this function, like executing the prompt and confirms, then if user whats that condition, what that does to the passwordCharacter string
@@ -36,7 +36,7 @@ function generatePassword() {
   if (specialCharacters === true) {
     passwordCharacters = passwordCharacters.concat(symbols)
   }
-  
+
   var includeUppercase = confirm("Click OK to confirm including uppercase characters.");
   if (includeUppercase === true) {
     passwordCharacters = passwordCharacters.concat(upperCaseLetters)
@@ -48,26 +48,13 @@ function generatePassword() {
   } 
   
   // this is where we have to create for loop for finalPassword variable so that it is looping passwordCharacters to have each character randomized according to user confirmed conditions by the length chosen by user
+  // do this by combing charAt method for strings with Math.floor(Math.random() method while also factoring in length
   var finalPassword = "";
-  for (let i=0; i < numberOfCharacters; i++) {
-    if (includeNumbers) {
-      passwordCharacters.push((numbers[i]))
-    };
-    if (specialCharacters) {
-      passwordCharacters.push((symbols[i]))
-    };
-    if (includeUppercase) {
-      passwordCharacters.push((upperCaseLetters[i]))
-    };
-    if (includeLowercase) {
-      passwordCharacters.push((lowerCaseLetters[i]))
-    };
-    return finalPassword;
-  };
-  
-};
-
-
+  for (var i = 0; i < numberOfCharacters; i++) {
+    finalPassword = finalPassword + passwordCharacters.charAt(Math.floor(Math.random() * passwordCharacters.length));
+  }  
+  return finalPassword;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
