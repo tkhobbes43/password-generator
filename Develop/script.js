@@ -47,6 +47,11 @@ function generatePassword() {
     passwordCharacters = passwordCharacters.concat(lowerCaseLetters)
   } 
   
+  else {
+    if ((includeUppercase === false) && (includeLowercase === false) && (includeNumbers === false && (specialCharacters === false))) {
+      alert("At least one of the password criteria must be chosen.");
+    }
+  }
   // this is where we have to create for loop for finalPassword variable so that it is looping passwordCharacters to have each character randomized according to user confirmed conditions by the length chosen by user
   // do this by combing charAt method for strings with Math.floor(Math.random() method while also factoring in length
   var finalPassword = "";
