@@ -26,14 +26,29 @@ function generatePassword() {
     alert("Password must be between 8 and 128 characters.");
     return numberOfCharacters;
   }
-  
+  // going to do basically the same now for rest of the conditions
+  var includeNumbers = confirm("Click OK to confirm including numbers.");
+  if (includeNumbers === true) {
+    passwordCharacters = passwordCharacters.concat(numbers)
   }
-  let includeNumbers = confirm("Click OK to confirm including numbers.")
-  let specialCharacters = confirm("Click OK to confirm including special characters.")
-  let includeUppercase = confirm("Click OK to confirm including uppercase characters.");
-  let includeLowercase = confirm("Click OK to confirm including lowercase characters.");
-  let passwordCharacters = []
-  let finalPassword = passwordCharacters.join('')
+
+  var specialCharacters = confirm("Click OK to confirm including special characters.");
+  if (specialCharacters === true) {
+    passwordCharacters = passwordCharacters.concat(symbols)
+  }
+  
+  var includeUppercase = confirm("Click OK to confirm including uppercase characters.");
+  if (includeUppercase === true) {
+    passwordCharacters = passwordCharacters.concat(upperCaseLetters)
+  }
+
+  var includeLowercase = confirm("Click OK to confirm including lowercase characters.");
+  if (includeLowercase === true) {
+    passwordCharacters = passwordCharacters.concat(lowerCaseLetters)
+  } 
+  
+  // this is where we have to create for loop for finalPassword variable so that it is looping passwordCharacters to have each character randomized according to user confirmed conditions by the length chosen by user
+  var finalPassword = "";
   for (let i=0; i < numberOfCharacters; i++) {
     if (includeNumbers) {
       passwordCharacters.push((numbers[i]))
