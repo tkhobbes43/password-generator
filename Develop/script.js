@@ -1,14 +1,14 @@
-// Assignment Code
+// Assignment Code, part of the starter code
 let generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// Write password to the #password input, part of the starter code
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
 
-// arrays for each conditional variable
+// strings for all characters you can  use for the password, based on each conditional variable
 var numbers = "0123456789";
 var symbols = "!@#$%^&*()+-.~|<>=-_/:;?[]{}~'";
 var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -16,7 +16,8 @@ var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
 
 
 function generatePassword() {
- //setting variables for the prompts, this makes it so it shows them correctly as you use the application
+ //want to have all the most of the work done here inside this function, like executing the prompt and confirms, then if user whats that condition, what that does to the passwordCharacter string
+ //then user selects either ok or cancel on all the conditions, it combines all the variables into finalPassword string
   let numberOfCharacters = 0
   while(numberOfCharacters === 0 || numberOfCharacters < 8 || numberOfCharacters > 128) {
     numberOfCharacters = parseInt(prompt("How many characters would you like your password to contain?"));
