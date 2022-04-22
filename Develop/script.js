@@ -15,12 +15,6 @@ var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";  
 
 
-// needed to randomize each criteria into an array
-function randomize(array) {
-  let index = Math.floor(Math.random() * array.length) 
-  return array[index]
-}
-
 function generatePassword() {
  //setting variables for the prompts, this makes it so it shows them correctly as you use the application
   let numberOfCharacters = 0
